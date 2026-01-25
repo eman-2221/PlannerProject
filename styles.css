@@ -6,7 +6,7 @@ html {
 footer {
     text-align: center;
     padding: 0.1em;
-    /*background-color: rgb(40, 38, 38);*/
+    background-color: rgb(40, 38, 38);
     color: lightsteelblue;
     position: fixed;
     width: 100%;
@@ -18,4 +18,30 @@ main {
     position: relative;
     text-align: center;
     padding: 1rem;
+    /*display: flex;*/
+}
+
+#main-section {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2px;
+    border: 10px solid white;
+    color: white;
+}
+
+button {
+    border-radius: 3.5rem;
+    background-color: lightblue;
+    width: 145px;
+    height: 50px;
+    text-wrap: true;
+    text-align: center;
+    color: black;
+    border: 5px solid black;
+}
+
+button:hover {
+    background-color: cyan;
+    width: 160px;
+    height: 60px;
 }

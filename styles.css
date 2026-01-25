@@ -14,18 +14,26 @@ footer {
     margin-bottom: 0;
 }
 
+nav ul {
+    list-style: none;
+    text-align: left;
+    float: left;
+    border: 2px solid white;
+    background-color: wheat;
+}
+
 main {
     position: relative;
     text-align: center;
     padding: 1rem;
-    /*display: flex;*/
+    display: flex;
 }
 
 #main-section {
     display: flex;
     justify-content: space-evenly;
     padding: 2px;
-    border: 10px solid white;
+    border: 5px solid white;
     color: white;
 }
 

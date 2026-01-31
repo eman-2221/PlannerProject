@@ -1,70 +1,94 @@
 html, body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    height: 100%;
+    background-color: rgb(53, 51, 51);
 }
 
+/* Sidebar */
 header {
     background-color: blue;
     position: fixed;
-    justify-content: space-evenly;
     left: 0;
     top: 0;
     bottom: 0;
-    width: 300px;
+    width: 300px; /* Your specific size */
+    overflow-y: auto;
+    z-index: 10;
 }
 
-nav ul {
-    list-style: none;
-    text-align: left;
-    float: left;
-    border: 2px solid white;
-    background-color: wheat;
+header h1 {
+    color: white;
+    font-size: 1.5rem;
+    padding: 20px;
+    text-align: center;
 }
 
-nav a {
-    color: red
+/* The "Pusher" - this fixes the overlap and the scrollbar */
+.content-wrapper {
+    margin-left: 300px; /* Must match header width */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures it's at least as tall as the screen */
 }
 
 main {
+    flex: 1; /* Pushes the footer to the bottom */
     text-align: center;
-    padding: 1rem
-}
-
-/*--#main-section {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 2px;
-    border: 5px solid white;
-    color: white;
-}*/
-
-button {
-    border-radius: 3.5rem;
-    background-color: lightblue;
-    width: 145px;
-    height: 50px;
-    text-wrap: true;
-    text-align: center;
-    color: black;
-    border: 5px solid black;
-}
-
-button:hover {
-    background-color: cyan;
-    width: 160px;
-    height: 60px;
+    padding: 2rem;
+    color: lightsteelblue;
 }
 
 footer {
-    text-align: center;
-    padding: 1rem;
     background-color: rgb(32, 30, 30);
     color: lightsteelblue;
+    padding: 1.5rem;
+    text-align: center;
+    margin-left: 300px;
+    /* No absolute positioning needed anymore! */
+}
+
+/* Fix for the Nav box */
+nav ul {
+    list-style: none;
+    padding: 10px;
+    margin: 20px;
+    margin: 40px 0 0 0; /* Adds some space at the top of the sidebar */
+}
+
+nav li {
     width: 100%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin-bottom: 0;
-    z-index: -1;
+}
+
+/* 1. The Base Link Style */
+nav a {
+    display: block;
+    padding: 15px 25px;
+    color: rgba(255, 255, 255, 0.8); /* Slightly faded white */
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth "snappy" transition */
+    border-left: 4px solid transparent; /* Hidden border for the animation */
+}
+
+/* 2. The Hover Interaction */
+nav a:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 35px; /* Slight "push" to the right when hovering */
+    border-left: 4px solid cyan; /* A nice highlight line appears */
+}
+
+/* 3. The "Active" Page (The one you are currently viewing) */
+/* You would add class="active" to the link in your HTML for the current page */
+nav a.active {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: cyan;
+    border-left: 4px solid cyan;
+}
+
+img {
+    max-width: 100%; /* The image will never be wider than the content area */
+    height: auto;
 }

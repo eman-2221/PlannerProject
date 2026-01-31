@@ -49,29 +49,34 @@ footer {
 }
 
 /* Fix for the Nav box */
+/* Remove the bullet points and the wheat box */
 nav ul {
     list-style: none;
-    padding: 10px;
-    margin: 20px;
+    padding: 0;
     margin: 40px 0 0 0; /* Adds some space at the top of the sidebar */
 }
 
+/* Make each list item a full-width block */
 nav li {
     width: 100%;
 }
 
-/* 1. The Base Link Style */
+/* Style the actual links */
 nav a {
-    display: block;
-    padding: 15px 25px;
-    color: rgba(255, 255, 255, 0.8); /* Slightly faded white */
+    display: block;      /* Makes the whole area clickable, not just the text */
+    padding: 15px 25px;  /* Gives the links some breathing room */
+    color: white;        /* Changed from red for better contrast on blue */
     text-decoration: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    letter-spacing: 1px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth "snappy" transition */
-    border-left: 4px solid transparent; /* Hidden border for the animation */
+    font-family: sans-serif;
+    font-weight: bold;
+    transition: background 0.3s; /* Smooth color change for later animations */
 }
 
+/* Add a hover effect */
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Soft white highlight */
+    color: wheat;
+}
 /* 2. The Hover Interaction */
 nav a:hover {
     color: white;

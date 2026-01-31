@@ -5,6 +5,12 @@ html, body {
     background-color: rgb(53, 51, 51);
 }
 
+:root {
+    --sidebar-width: 80px;         /* Normal width */
+    --sidebar-expanded: 350px;      /* Width when hovered */
+    --transition-speed: 0.4s;       /* How fast it slides */
+}
+
 /* Sidebar */
 header {
     background-color: blue;
@@ -12,9 +18,29 @@ header {
     left: 0;
     top: 0;
     bottom: 0;
-    width: 300px; /* Your specific size */
-    overflow-y: auto;
-    z-index: 10;
+    width: var(--sidebar-width);    /* Use the variable */
+    z-index: 100;
+    transition: width var(--transition-speed) ease; /* ANIMATE THE WIDTH */
+    overflow: hidden;               /* Prevents text from jumping during slide */
+}
+
+/* THE MAGIC: When you hover the header, make it wider */
+header:hover {
+    width: var(--sidebar-expanded);
+}
+
+/* The Content Pusher */
+.content-wrapper {
+    margin-left: var(--sidebar-width); /* Matches sidebar */
+    transition: margin-left var(--transition-speed) ease; /* ANIMATE THE MARGIN */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* THE MAGIC: When the header is hovered, push the content further */
+header:hover + .content-wrapper {
+    margin-left: var(--sidebar-expanded);
 }
 
 header h1 {
@@ -22,14 +48,6 @@ header h1 {
     font-size: 1.5rem;
     padding: 20px;
     text-align: center;
-}
-
-/* The "Pusher" - this fixes the overlap and the scrollbar */
-.content-wrapper {
-    margin-left: 300px; /* Must match header width */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensures it's at least as tall as the screen */
 }
 
 main {
@@ -44,7 +62,6 @@ footer {
     color: lightsteelblue;
     padding: 1.5rem;
     text-align: center;
-    margin-left: 300px;
     /* No absolute positioning needed anymore! */
 }
 
